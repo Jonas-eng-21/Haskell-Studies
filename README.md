@@ -68,4 +68,12 @@ euclides primeiro segundo
 | otherwise = euclides primeiro (segundo - primeiro)
 
 ```
-*Vai gerar erro de sintaxe, porque as guardas não estão devidamente indentadas.*
+*Vai gerar erro de sintaxe, porque as guardas não estão devidamente indentadas.*  
+---  
+
+## Recursão em Haskell:  
+Funções recursivas são uma parte essencial da programação funcional e, em particular, do Haskell. Uma função é recursiva quando ela se chama dentro de sua própria definição. Em Haskell, a recursão é muitas vezes usada como a principal maneira de lidar com iteração e processamento de listas ou outras estruturas de dados.  
+
+* *O caso base é essencial*: Toda função recursiva precisa de um caso base para parar a recursão e evitar que ela se repita indefinidamente.
+* *Recursão é a forma padrão de iteração*: Ao invés de usar laços como for ou while (como em linguagens imperativas), em Haskell utilizamos recursão para processar listas e outras estruturas.
+* *Desempenho*: Embora a recursão seja elegante e expressiva, ela pode ser ineficiente em alguns casos. Em Haskell, recursões "profundas" podem levar a estouro de pilha. Contudo, Haskell possui otimizações como tail recursion (recursão em cauda), que ajuda a evitar esse problema, mas precisamos estar atentos.  
