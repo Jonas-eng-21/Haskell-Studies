@@ -30,3 +30,42 @@ Ou seja:
 * Segundo argumento: <mark>a</mark>
 * Terceiro argumento: <mark>a</mark>    
 * Retorno: <mark>Int</mark> (número que representa quantos são iguais)
+--
+## Identação do código:  
+Ex.:
+Cabeçalho da função: euclides :: Int -> Int -> Int
+Essa linha declara o tipo da função: ela recebe dois inteiros (Int) e retorna um inteiro (Int). Isso é apenas uma assinatura de tipo.
+
+📌 Definição da função com guardas  
+```
+euclides primeiro segundo
+  | primeiro == segundo = primeiro
+  | primeiro > segundo  = euclides (primeiro - segundo) segundo
+  | otherwise           = euclides primeiro (segundo - primeiro)
+
+```  
+
+Aqui começa a implementação da função, com uso de guardas (|), que são como condições if.  
+Componentes importantes:  
+euclides primeiro segundo: aqui você define os nomes dos argumentos (em vez de a, b, etc., você usou primeiro e segundo, o que torna o código mais legível).   
+|: essas são guardas, parecidas com if em outras linguagens. Cada guarda é testada em ordem.  
+Repare na indentação:  
+Todas as guardas estão alinhadas verticalmente sob a definição da função:  
+```
+euclides primeiro segundo  -- definição
+  | condição = resultado   -- alinhado 2 espaços à direita
+  | ...      = ...         -- mesma coluna para os próximos
+
+```
+Se as guardas estivessem desalinhadas, o compilador Haskell geraria erro. A identação serve para indicar que todas essas condições pertencem ao mesmo nível da definição da função.  
+
+✅ **Por que isso importa?**  
+Haskell não usa chaves {} ou palavras como then, endif, etc.. Em vez disso, a indentação indica blocos de código, como no Python. Se você escrever isso assim:  
+```
+euclides primeiro segundo
+| primeiro == segundo = primeiro
+| primeiro > segundo = euclides (primeiro - segundo) segundo
+| otherwise = euclides primeiro (segundo - primeiro)
+
+```
+*Vai gerar erro de sintaxe, porque as guardas não estão devidamente indentadas.*
